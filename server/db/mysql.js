@@ -1,19 +1,8 @@
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'admin',
-  password: 'kobi123456',
-  database: 'kobi',
-});
+const config = require('../../config');
+
 const knex = require('knex')({
   client: 'mysql',
-  connection: {
-    host: 'localhost',
-    user: 'admin',
-    password: 'kobi123456',
-    database: 'kobi',
-    charset: 'utf8',
-  },
+  connection: config,
 });
 const bookshelf = require('bookshelf')(knex);
 
